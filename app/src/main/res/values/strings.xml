@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Controle$$</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_menu_categoria">MenuCategoria</string>
+    <string name="title_activity_nova_categoria">NovaCategoria</string>
+    <string name="registro_salvo">registro salvo</string>
+    <string name="erro_salvar">erro ao salvar</string>
+</resources>
