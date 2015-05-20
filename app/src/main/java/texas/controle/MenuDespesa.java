@@ -1,25 +1,23 @@
 package texas.controle;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 
-public class MenuCategoria extends ActionBarActivity {
+public class MenuDespesa extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_categoria);
+        setContentView(R.layout.activity_menu_despesa);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_menu_categoria, menu);
+        getMenuInflater().inflate(R.menu.menu_menu_despesa, menu);
         return true;
     }
 
@@ -37,14 +35,4 @@ public class MenuCategoria extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    public void clickNovaCategoria(View view) {
-        Intent it = new Intent(MenuCategoria.this, NovaCategoria.class);
-        startActivity(it);
-    }
-
-    public void MostrarCategorias(View view){
-        Intent it = new Intent(MenuCategoria.this, MostrarCategorias.class);
-        startActivity(it);
-    }
-
 }

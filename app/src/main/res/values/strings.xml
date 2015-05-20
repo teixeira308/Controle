@@ -7,4 +7,6 @@
     <string name="title_activity_nova_categoria">NovaCategoria</string>
     <string name="registro_salvo">registro salvo</string>
     <string name="erro_salvar">erro ao salvar</string>
+    <string name="title_activity_menu_despesa">MenuDespesa</string>
+    <string name="title_activity_mostrar_categorias">MostrarCategorias</string>
 </resources>

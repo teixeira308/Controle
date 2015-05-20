@@ -1,39 +1,27 @@
 package texas.controle;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Environment;
 
-/**
- * Created by User on 19/05/2015.
- */
+
 public class DatabaseHelper extends SQLiteOpenHelper {
-
-    private static final int DATABASE_VERSION = 2;
-    private static final String DATABASE_NAME = "BD";
-    private static final String CATEGORIA_TABLE_NAME = "categoria";
-
-    DatabaseHelper(Context context) {
-        super(context, Environment.getExternalStorageDirectory().getAbsolutePath() + "/nome-da-aplicacao/database/" + DATABASE_NAME, null, DATABASE_VERSION);
-
+    private static final String BANCO_DADOS = "Controle";
+    private static int VERSAO = 1;
+    public DatabaseHelper(Context context) {
+        super(context, BANCO_DADOS, null, VERSAO);
     }
-
-    private static final String DICTIONARY_TABLE_CREATE =
-            "CREATE TABLE " + CATEGORIA_TABLE_NAME + " (" +
-                    " _id INT, " +
-                    " nome TEXT);";
-
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(DICTIONARY_TABLE_CREATE);
+        db.execSQL("CREATE TABLE categoria (_id INTEGER PRIMARY KEY," +
+                " descricao TEXT);");
+        db.execSQL("CREATE TABLE gasto (_id INTEGER PRIMARY KEY," +
+                " _idcategoria INTEGER, data DATE, valor DOUBLE," +
+                "  local TEXT," +
+                " FOREIGN KEY(_idcategoria) REFERENCES categoria(_id));");
     }
+            @Override
+            public void onUpgrade(SQLiteDatabase db,
+                                  int oldVersion, int newVersion) {
 
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int currentVersion) {
-
-    }
-
-
-}
+    }}

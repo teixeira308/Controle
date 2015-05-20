@@ -20,13 +20,13 @@ public class NovaCategoria extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nova_categoria);
         nome= (EditText) findViewById(R.id.editText);
+        helper = new DatabaseHelper(this);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_nova_categoria, menu);
-        helper = new DatabaseHelper(this);
         return true;
     }
 
@@ -48,12 +48,13 @@ public class NovaCategoria extends ActionBarActivity {
      public void salvarCategoria(View view){
         SQLiteDatabase db = helper.getWritableDatabase();
          ContentValues values = new ContentValues();
-         values.put("_id", "1");
-         values.put("nome", nome.getText().toString());
+         //values.put("_id", 1);
+         values.put("descricao", nome.getText().toString());
          long resultado = db.insert("categoria", null, values);
          if(resultado != -1 ){
              Toast.makeText(this, getString(R.string.registro_salvo),
                      Toast.LENGTH_SHORT).show();
+                    finish();
          }else{
              Toast.makeText(this, getString(R.string.erro_salvar),
                      Toast.LENGTH_SHORT).show();
